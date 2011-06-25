@@ -1,7 +1,7 @@
 <?php
 // $Id: page.tpl.php,v 1.1.2.2.4.2 2011/01/11 01:08:49 dvessel Exp $
 ?>
-<div id="page" class="container-16 clearfix">
+<div id="page" class="container-12 clearfix">
 
   <div id="site-header" class="clearfix">
     <div id="branding" class="grid-4 clearfix">
@@ -30,20 +30,20 @@
 
   <div id="site-subheader" class="prefix-1 suffix-1 clearfix">
   <?php if ($page['highlighted']): ?>
-    <div id="highlighted" class="<?php print ns('grid-14', $page['header'], 7); ?>">
+    <div id="highlighted" class="<?php print ns('grid-10', $page['header'], 7); ?>">
       <?php print render($page['highlighted']); ?>
     </div>
   <?php endif; ?>
 
   <?php if ($page['header']): ?>
-    <div id="header-region" class="region <?php print ns('grid-14', $page['highlighted'], 7); ?> clearfix">
+    <div id="header-region" class="region <?php print ns('grid-10', $page['highlighted'], 7); ?> clearfix">
       <?php print render($page['header']); ?>
     </div>
   <?php endif; ?>
   </div>
 
 
-  <div id="main" class="column <?php print ns('grid-16', $page['sidebar_first'], 4, $page['sidebar_second'], 3) . ' ' . ns('push-4', !$page['sidebar_first'], 4); ?>">
+  <div id="main" class="column <?php print ns('grid-12', $page['sidebar_first'], 3, $page['sidebar_second'], 3) . ' ' . ns('push-3', !$page['sidebar_first'], 3); ?>">
     <?php print $breadcrumb; ?>
     <?php print render($title_prefix); ?>
     <?php if ($title): ?>
@@ -64,7 +64,7 @@
   </div>
 
 <?php if ($page['sidebar_first']): ?>
-  <div id="sidebar-left" class="column sidebar region grid-4 <?php print ns('pull-12', $page['sidebar_second'], 3); ?>">
+  <div id="sidebar-left" class="column sidebar region grid-3 <?php print ns('pull-9', $page['sidebar_second'], 3); ?>">
     <?php print render($page['sidebar_first']); ?>
   </div>
 <?php endif; ?>
@@ -78,7 +78,7 @@
 
   <div id="footer" class="prefix-1 suffix-1">
     <?php if ($page['footer']): ?>
-      <div id="footer-region" class="region grid-14 clearfix">
+      <div id="footer-region" class="region grid-10 clearfix">
         <?php print render($page['footer']); ?>
       </div>
     <?php endif; ?>

@@ -20,3 +20,88 @@ ul.secondary-menu {
   margin: 0;
   padding: 0;
 }
+
+body {
+  font-family: "Courier New",Courier,monospace;
+}
+
+/*styling for sidebar blocks and main content*/
+#block-views-temasider-block h2 {
+	background-image: url('../images/headline_arrow_blue.png');
+}
+
+/*border colors*/
+#block-views-temasider-block {
+  border: 3px solid #65A1D4;
+}
+
+#block-views-photo-album-block {
+  border: 3px solid #A9BA36;
+}
+
+#block-views-facts-block{
+  border: 3px solid #F05233;
+}
+
+#main-content .node {
+  border: 3px solid #000000;
+}
+#block-views-photo-album-block,
+#block-views-temasider-block,
+#block-views-facts-block,
+#main-content {
+  background-color: #ffffff;
+}
+/*padding*/
+#block-views-temasider-block .views-row,
+#block-views-photo-album-block .views-row,
+#block-views-facts-block .views-row,
+#main-content .node
+ {
+  padding: 5px;
+}
+
+#block-views-photo-album-block h2 {
+	background-image: url('../images/headline_arrow_green.png');
+
+}
+
+#block-views-facts-block h2 {
+	background-image: url('../images/headline_arrow_red.png');
+}
+
+#block-views-facts-block h2,
+#block-views-photo-album-block h2,
+#block-views-temasider-block h2,
+#main-content h2 
+ {
+  font-family: 'Cherry Cream Soda', serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  text-shadow: none;
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: 0em;
+  word-spacing: 0em;
+  line-height: 1.2;
+  color: #ffffff;
+  padding-left: 15px;
+  padding-top: 8px;
+  margin-bottom: 5px;
+  margin-top: -18px;
+  margin-left: 3px;
+  background-repeat: no-repeat;
+  min-height: 55px;
+}
+
+
+#main-content h2 a {
+    -moz-transform: rotate(-1deg);
+    -webkit-transform: rotate(-1deg);
+    background-color: #000000;
+    color: #FFFFFF;
+    font-size: 16px;
+    padding: 6px;  
+    text-decoration:none;
+}

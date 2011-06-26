@@ -6,6 +6,9 @@
  */
 define('CSS_NS_FRAMEWORK', -200);
 
+/*we use google fonts*/
+drupal_add_css('http://fonts.googleapis.com/css?family=Cherry+Cream+Soda:regular&v1','external');
+
 /**
  * Implements hook_preprocess_html
  */

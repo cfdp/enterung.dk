@@ -14,6 +14,14 @@ h1#site-name {
   margin-bottom: 1.5em;
 }
 
+/*we want a semi transparent header region*/
+#site-header {
+  background-color: #ffffff;
+  /* for IE */
+  filter:alpha(opacity=60);
+  /* CSS3 standard */
+  opacity:0.6;
+}
 ul.main-menu,
 ul.secondary-menu {
   display: block;
@@ -25,6 +33,9 @@ body {
   font-family: "Courier New",Courier,monospace;
 }
 
+body .container-12 {
+  background-image: url('../images/Kærester_slut_30erne.jpg');
+}
 /*styling for sidebar blocks and main content*/
 #block-views-temasider-block h2 {
 	background-image: url('../images/headline_arrow_blue.png');
@@ -43,15 +54,20 @@ body {
   border: 3px solid #F05233;
 }
 
-#main-content .node {
+body.front #main-content .node,
+body.not-front #main .node {
   border: 3px solid #000000;
 }
+
 #block-views-photo-album-block,
 #block-views-temasider-block,
 #block-views-facts-block,
-#main-content {
+body.front #main-content .node,
+body.not-front #main .node {
   background-color: #ffffff;
 }
+
+
 /*padding*/
 #block-views-temasider-block .views-row,
 #block-views-photo-album-block .views-row,
@@ -96,7 +112,8 @@ body {
 }
 
 
-#main-content h2 a {
+#main-content h2 a,
+#main h1.title {
     -moz-transform: rotate(-1deg);
     -webkit-transform: rotate(-1deg);
     background-color: #000000;
@@ -105,3 +122,34 @@ body {
     padding: 6px;  
     text-decoration:none;
 }
+
+/*photo album*/
+#block-views-photo-album-block .views-field-field-image {
+  padding-left: 8px;
+}
+
+.view-display-id-attachment_1 .views-row {
+  display:inline;
+  font-size: 10px;
+}
+
+/*site name*/
+h1#site-name  {
+  font-family: 'Cherry Cream Soda', serif;
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 400;
+  text-shadow: none;
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: 0em;
+  word-spacing: 0em;
+  line-height: 1.2;
+}
+
+h1#site-name a {
+  text-decoration: none;
+  color: #000000;
+
+}
+

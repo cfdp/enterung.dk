@@ -43,19 +43,20 @@ body .container-12 {
 
 /*border colors*/
 #block-views-temasider-block {
-  border: 3px solid #65A1D4;
+  border: 3px solid #738BD8;
 }
 
 #block-views-photo-album-block {
-  border: 3px solid #A9BA36;
+  border: 3px solid #9BD200;
 }
 
 #block-views-facts-block{
-  border: 3px solid #F05233;
+  border: 3px solid #EC3E00;
 }
 
 body.front #main-content .node,
-body.not-front #main .node {
+body.not-front #main .node,
+body.page-user #main-content {
   border: 3px solid #000000;
 }
 
@@ -63,7 +64,8 @@ body.not-front #main .node {
 #block-views-temasider-block,
 #block-views-facts-block,
 body.front #main-content .node,
-body.not-front #main .node {
+body.not-front #main .node,
+body.page-user #main-content {
   background-color: #ffffff;
 }
 
@@ -72,9 +74,25 @@ body.not-front #main .node {
 #block-views-temasider-block .views-row,
 #block-views-photo-album-block .views-row,
 #block-views-facts-block .views-row,
-#main-content .node
+#main-content .node,
+body.page-user #main-content
  {
   padding: 5px;
+}
+
+/*text should float to the right, next to images*/
+#block-views-temasider-block .views-field-field-image {
+ float: left;
+ margin-right: 5px;
+  
+}
+  
+#block-views-temasider-block .views-field-nid {
+  clear: left;
+}
+#block-views-temasider-block .views-field-title {
+  text-transform:uppercase;
+  font-weight: bold;
 }
 
 #block-views-photo-album-block h2 {
@@ -131,6 +149,11 @@ body.not-front #main .node {
 .view-display-id-attachment_1 .views-row {
   display:inline;
   font-size: 10px;
+}
+
+body.node-type-photo-album .field-type-image .field-item {
+  display:inline;
+  margin-right: 8px;
 }
 
 /*site name*/

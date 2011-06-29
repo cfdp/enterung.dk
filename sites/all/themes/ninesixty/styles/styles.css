@@ -15,13 +15,16 @@ h1#site-name {
 }
 
 /*we want a semi transparent header region*/
-#site-header {
+#site-header .transparency_test {
   background-color: #ffffff;
   /* for IE */
   filter:alpha(opacity=60);
   /* CSS3 standard */
   opacity:0.6;
+  height: 55px;
+  position: absolute;
 }
+
 ul.main-menu,
 ul.secondary-menu {
   display: block;
@@ -34,7 +37,8 @@ body {
 }
 
 body .container-12 {
-  background-image: url('../images/Kærester_slut_30erne.jpg');
+ background-image: url('../images/Kærester_slut_30erne.jpg');
+  /*background-image: url('../images/frontpage_backv2.jpg');*/
 }
 /*styling for sidebar blocks and main content*/
 #block-views-temasider-block h2 {
@@ -156,7 +160,7 @@ body.node-type-photo-album .field-type-image .field-item {
   margin-right: 8px;
 }
 
-/*site name*/
+/*site name and slogan*/
 h1#site-name  {
   font-family: 'Cherry Cream Soda', serif;
   font-size: 44px;
@@ -176,3 +180,22 @@ h1#site-name a {
 
 }
 
+#site-slogan {
+  font-family: 'Cherry Cream Soda', serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  text-shadow: none;
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: 0em;
+  word-spacing: 0em;
+  line-height: 1.2;
+  margin-top: -30px;
+  -moz-transform: rotate(-1deg);
+  -webkit-transform: rotate(-1deg);
+  background-color: #738BD8;
+  color: #FFFFFF;
+  padding: 6px;  
+  text-decoration:none;
+}

@@ -4,6 +4,7 @@
 <div id="page" class="container-12 clearfix">
 
   <div id="site-header" class="clearfix">
+    <div class="transparency grid-12" ></div>
     <div id="branding" class="grid-4 clearfix">
     <?php if ($linked_logo_img): ?>
       <span id="logo" class="grid-1 alpha"><?php print $linked_logo_img; ?></span>
@@ -12,7 +13,7 @@
       <h1 id="site-name" class="grid-3 omega"><?php print $linked_site_name; ?></h1>
     <?php endif; ?>
     <?php if ($site_slogan): ?>
-      <div id="site-slogan" class="grid-3 omega"><?php print $site_slogan; ?></div>
+      <div id="site-slogan" class="grid-4 push-4 omega"><?php print $site_slogan; ?></div>
     <?php endif; ?>
     </div>
 

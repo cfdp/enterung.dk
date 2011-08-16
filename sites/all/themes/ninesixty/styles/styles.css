@@ -15,7 +15,7 @@ h1#site-name {
 }
 
 /*we want a semi transparent header region*/
-#site-header .transparency_test {
+#site-header .transparency {
   background-color: #ffffff;
   /* for IE */
   filter:alpha(opacity=60);
@@ -36,6 +36,7 @@ body {
   font-family: "Courier New",Courier,monospace;
 }
 
+/*background image for the site*/
 body .container-12 {
  background-image: url('../images/Kærester_slut_30erne.jpg');
   /*background-image: url('../images/frontpage_backv2.jpg');*/
@@ -58,15 +59,18 @@ body .container-12 {
   border: 3px solid #EC3E00;
 }
 
+/*Black borders on content in the center column*/
 body.front #main-content .node,
 body.not-front #main .node,
-body.page-user #main-content {
+body.page-user #main-content,
+#block-views-temasider-block-1 {
   border: 3px solid #000000;
 }
 
 #block-views-photo-album-block,
 #block-views-temasider-block,
 #block-views-facts-block,
+#block-views-temasider-block-1,
 body.front #main-content .node,
 body.not-front #main .node,
 body.page-user #main-content {
@@ -78,6 +82,7 @@ body.page-user #main-content {
 #block-views-temasider-block .views-row,
 #block-views-photo-album-block .views-row,
 #block-views-facts-block .views-row,
+#block-views-temasider-block-1 .views-row,
 #main-content .node,
 body.page-user #main-content
  {
@@ -133,9 +138,10 @@ body.page-user #main-content
   min-height: 55px;
 }
 
-
+/*white typewriter-heading on black background*/
 #main-content h2 a,
-#main h1.title {
+#main h1.title,
+#main #block-views-temasider-block-1 h2 {
     -moz-transform: rotate(-1deg);
     -webkit-transform: rotate(-1deg);
     background-color: #000000;

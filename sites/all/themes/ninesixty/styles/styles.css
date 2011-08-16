@@ -115,8 +115,7 @@ body.page-user #main-content
 
 #block-views-facts-block h2,
 #block-views-photo-album-block h2,
-#block-views-temasider-block h2,
-#main-content h2 
+#block-views-temasider-block h2
  {
   font-family: 'Cherry Cream Soda', serif;
   font-size: 14px;
@@ -136,6 +135,12 @@ body.page-user #main-content
   margin-left: 3px;
   background-repeat: no-repeat;
   min-height: 55px;
+}
+
+/*comments headline*/
+#main-content #comments h2 {
+  font-size: 18px;
+  margin-top: 50px;
 }
 
 /*white typewriter-heading on black background*/

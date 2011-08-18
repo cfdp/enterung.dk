@@ -38,7 +38,7 @@ body {
 
 /*background image for the site*/
 body .container-12 {
- /*background-image: url('../images/Kærester_slut_30erne.jpg');*/
+  background-image: url('../images/Kærester_slut_30erne.jpg');
   /*background-image: url('../images/frontpage_backv2.jpg');*/
 }
 /*styling for sidebar blocks and main content*/
@@ -93,6 +93,7 @@ body.page-user #main-content
 #block-views-temasider-block .views-field-field-image {
  float: left;
  margin-right: 5px;
+ margin-bottom: 10px;
   
 }
   
@@ -102,6 +103,7 @@ body.page-user #main-content
 #block-views-temasider-block .views-field-title {
   text-transform:uppercase;
   font-weight: bold;
+  clear: left;
 }
 
 #block-views-photo-album-block h2 {

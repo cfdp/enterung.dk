@@ -14,8 +14,13 @@ h1#site-name {
   margin-bottom: 1.5em;
 }
 
-/*we want a semi transparent header region*/
-#site-header .transparency_test
+/*we want a semi transparent header region - this solution not working with 960 it seems*/
+#site-header .transparency_test {
+  background-color: #ffffff;
+  /* for IE */
+  filter:alpha(opacity=60);
+  /* CSS3 standard */
+  opacity:0.6;
   height: 55px;
   position: absolute;
 }

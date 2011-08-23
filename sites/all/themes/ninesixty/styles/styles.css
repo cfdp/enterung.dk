@@ -15,12 +15,7 @@ h1#site-name {
 }
 
 /*we want a semi transparent header region*/
-#site-header .transparency {
-  background-color: #ffffff;
-  /* for IE */
-  filter:alpha(opacity=60);
-  /* CSS3 standard */
-  opacity:0.6;
+#site-header .transparency_test
   height: 55px;
   position: absolute;
 }
@@ -198,6 +193,10 @@ h1#site-name a {
 
 }
 
+#site-header {
+  margin-bottom: 0px;
+}
+
 #site-slogan {
   font-family: 'Cherry Cream Soda', serif;
   font-size: 18px;
@@ -217,3 +216,11 @@ h1#site-name a {
   padding: 6px;  
   text-decoration:none;
 }
+
+#about-us {
+  margin-top: -40px;
+}
+
+#about-us .block {
+  margin-bottom: 0px;
+  }  

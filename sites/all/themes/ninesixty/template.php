@@ -16,6 +16,22 @@ function ninesixty_preprocess_html(&$vars) {
   $vars['classes_array'][] = 'show-grid';
 }
 
+
+/*we need some extra grid classes for the breadcrumb*/
+function ninesixty_breadcrumb($variables) {
+  $breadcrumb = $variables['breadcrumb'];
+
+  if (!empty($breadcrumb)) {
+    // Provide a navigational heading to give context for breadcrumb links to
+    // screen-reader users. Make the heading invisible with .element-invisible.
+    $output = '<h2 class="element-invisible">' . t('You are here') . '</h2>';
+
+    $output .= '<div class="breadcrumb grid-8">' . implode(' » ', $breadcrumb) . '</div>';
+    return $output;
+  }
+}
+
+
 /**
  * Preprocessor for page.tpl.php template file.
  */

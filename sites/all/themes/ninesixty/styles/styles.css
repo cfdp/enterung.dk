@@ -59,21 +59,24 @@ body .container-12 {
   border: 3px solid #EC3E00;
 }
 
-/*Black borders on content in the center column*/
+/*Black borders on node content, tour and debate-blocks*/
 body.front #main-content .node,
 body.not-front #main .node,
 body.page-user #main-content,
-#block-views-temasider-block-1 {
+#block-views-temasider-block-1,
+#block-views-reflektion-block {
   border: 3px solid #000000;
 }
 
+/*white background for content*/
 #block-views-photo-album-block,
 #block-views-temasider-block,
 #block-views-facts-block,
 #block-views-temasider-block-1,
 body.front #main-content .node,
 body.not-front #main .node,
-body.page-user #main-content {
+body.page-user #main-content,
+#block-views-reflektion-block {
   background-color: #ffffff;
 }
 
@@ -84,7 +87,9 @@ body.page-user #main-content {
 #block-views-facts-block .views-row,
 #block-views-temasider-block-1 .views-row,
 #main-content .node,
-body.page-user #main-content
+body.page-user #main-content,
+#block-views-reflektion-block,
+#block-views-temasider-block-1
  {
   padding: 5px;
 }
@@ -150,10 +155,16 @@ body.page-user #main-content
   margin-top: 50px;
 }
 
+body.node-type-temaside .field-name-field-image {
+  margin-top: 40px;
+}
+
 /*white typewriter-heading on black background*/
 #main-content h2 a,
 #main h1.title,
-#main #block-views-temasider-block-1 h2 {
+#main #block-views-temasider-block-1 h2,
+#block-views-reflektion-block h2,
+#block-views-temasider-block-1 h2 {
     -moz-transform: rotate(-1deg);
     -webkit-transform: rotate(-1deg);
     background-color: #000000;
@@ -161,6 +172,23 @@ body.page-user #main-content
     font-size: 16px;
     padding: 6px;  
     text-decoration:none;
+    margin-bottom: -37px;
+}
+
+/*white typewriter-heading on black background - logged in users*/
+body.logged-in #main-content h2 a,
+body.logged-in #main h1.title,
+#main #block-views-temasider-block-1 h2,
+#block-views-reflektion-block h2,
+#block-views-temasider-block-1 h2 {
+
+    margin-bottom: -63px;
+}
+
+#block-views-reflektion-block h2,
+#block-views-temasider-block-1 h2 {
+    margin-top: -15px;
+    margin-bottom: 10px;
 }
 
 /*photo album*/
@@ -229,3 +257,6 @@ h1#site-name a {
 #about-us .block {
   margin-bottom: 0px;
   }  
+.messages {
+  margin-top: 40px;
+}

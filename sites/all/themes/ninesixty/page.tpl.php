@@ -6,18 +6,19 @@
   <div id="site-header" class="clearfix">
     <div class="transparency grid-12 push-6" ></div>
     <div id="branding" class="grid-4 clearfix">
-    <?php if ($linked_logo_img): ?>
-      <span id="logo" class="grid-1 alpha"><?php print $linked_logo_img; ?></span>
-    <?php endif; ?>
-    <?php if ($linked_site_name): ?>
-      <h1 id="site-name" class="grid-3 omega"><?php print $linked_site_name; ?></h1>
-    <?php endif; ?>
-    <?php if ($site_slogan): ?>
-      <div id="site-slogan" class="grid-4 push-4 omega"><?php print $site_slogan; ?></div>
-    <?php endif; ?>
-  <?php if ($page['about_us']): ?>
-    <div id="about-us" class="grid-3 push-9 omega"><?php print render($page['about_us']); ?></div>
-  <?php endif; ?>
+      <?php if ($linked_logo_img): ?>
+        <span id="logo" class="grid-1 alpha"><?php print $linked_logo_img; ?></span>
+      <?php endif; ?>
+      <?php if ($linked_site_name): ?>
+        <h1 id="site-name" class="grid-3 omega"><?php print $linked_site_name; ?></h1>
+      <?php endif; ?>
+      <?php if ($site_slogan): ?>
+        <div id="site-slogan" class="grid-4 push-4 omega"><?php print $site_slogan; ?></div>
+      <?php endif; ?>
+      <?php if ($page['about_us']): ?>
+        <div id="about-us" class="grid-3 push-9 omega"><?php print render($page['about_us']); ?></div>
+      <?php endif; ?>
+      <?php print $breadcrumb; ?>
     </div>
 
   <?php if ($main_menu_links || $secondary_menu_links): ?>
@@ -48,7 +49,7 @@
 
 
   <div id="main" class="column <?php print ns('grid-12', $page['sidebar_first'], 3, $page['sidebar_second'], 3) . ' ' . ns('push-3', !$page['sidebar_first'], 3); ?>">
-    <?php print $breadcrumb; ?>
+   
     <?php print render($title_prefix); ?>
     <?php if ($title): ?>
       <h1 class="title" id="page-title"><?php print $title; ?></h1>

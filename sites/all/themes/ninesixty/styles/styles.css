@@ -228,7 +228,8 @@ body.logged-in #main h1.title,
   padding-left: 8px;
 }
 
-.view-display-id-attachment_1 .views-row {
+.view-display-id-attachment_1.view-id-photo_album .views-row,
+.view-display-id-attachment_1.view-id-facts .views-row {
   display:inline;
   font-size: 10px;
 }

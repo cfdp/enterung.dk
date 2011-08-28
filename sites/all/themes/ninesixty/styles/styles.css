@@ -36,6 +36,16 @@ body {
   font-family: "Courier New",Courier,monospace;
 }
 
+a {
+  color: #EC3E00;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #EC3E00;
+  text-decoration: underline;
+}
+
 /*background image for the site*/
 body .container-12 {
   background-image: url('../images/Kærester_slut_30erne.jpg');
@@ -63,6 +73,7 @@ body .container-12 {
 body.front #main-content .node,
 body.not-front #main .node,
 body.page-user #main-content,
+body.page-forum #main-content,
 #block-views-temasider-block-1,
 #block-views-reflektion-block {
   border: 3px solid #000000;
@@ -76,6 +87,7 @@ body.page-user #main-content,
 body.front #main-content .node,
 body.not-front #main .node,
 body.page-user #main-content,
+body.page-forum #main-content,
 #block-views-reflektion-block {
   background-color: #ffffff;
 }
@@ -88,6 +100,7 @@ body.page-user #main-content,
 #block-views-temasider-block-1 .views-row,
 #main-content .node,
 body.page-user #main-content,
+body.page-forum #main-content,
 #block-views-reflektion-block,
 #block-views-temasider-block-1
  {
@@ -155,8 +168,27 @@ body.page-user #main-content,
   margin-top: 50px;
 }
 
-body.node-type-temaside .field-name-field-image {
-  margin-top: 40px;
+/*hide input-format info etc for anonymous users*/
+body.not-logged-in .filter-wrapper,
+body.not-logged-in .description.mollom-privacy,
+body.not-logged-in a.ckeditor_links {
+  display: none;
+}
+
+/*reduce ckeditor size*/
+.form-textarea-wrapper {
+  padding-right: 12px;
+}
+/**/
+body.node-type-temaside .field-name-field-image,
+body.node-type-forum .node-forum,
+body.page-forum #main-content .content,
+body.node-type-forum #main-content .node {
+  padding-top: 40px;
+}
+
+body.page-forum #main-content {
+  margin-top: 27px;
 }
 
 /*white typewriter-heading on black background*/
@@ -172,7 +204,7 @@ body.node-type-temaside .field-name-field-image {
     font-size: 16px;
     padding: 6px;  
     text-decoration:none;
-    margin-bottom: -37px;
+     margin: -15px 10px -23px 10px;
 }
 
 /*white typewriter-heading on black background - logged in users*/
@@ -182,13 +214,13 @@ body.logged-in #main h1.title,
 #block-views-reflektion-block h2,
 #block-views-temasider-block-1 h2 {
 
-    margin-bottom: -63px;
+    margin: -24px 10px -63px 10px;
+    
 }
 
 #block-views-reflektion-block h2,
 #block-views-temasider-block-1 h2 {
-    margin-top: -15px;
-    margin-bottom: 10px;
+    margin: -15px 0 10px 0;
 }
 
 /*photo album*/
@@ -206,6 +238,11 @@ body.node-type-photo-album .field-type-image .field-item {
   margin-right: 8px;
 }
 
+/*forum*/
+
+#forum table {
+  width: 100%;
+}
 /*site name and slogan*/
 h1#site-name  {
   font-family: 'Cherry Cream Soda', serif;

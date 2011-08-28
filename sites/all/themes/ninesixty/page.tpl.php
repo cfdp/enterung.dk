@@ -80,6 +80,12 @@
   </div>
 <?php endif; ?>
 
+<?php if ($page['sidebar_second_bottom']): ?>
+  <div id="sidebar-right-bottom" class="column sidebar region grid-3">
+    <?php print render($page['sidebar_second_bottom']); ?>
+  </div>
+<?php endif; ?>
+
 
   <div id="footer" class="prefix-1 suffix-1">
     <?php if ($page['footer']): ?>

@@ -201,7 +201,7 @@ body.page-forum #main-content {
   margin-top: 27px;
 }
 
-/*white typewriter-heading on black background*/
+/*white typewriter-heading on black background - anonymous users*/
 #main-content h2 a,
 #main h1.title,
 #main #block-views-temasider-block-1 h2,
@@ -215,6 +215,16 @@ body.page-forum #main-content {
     padding: 6px;  
     text-decoration:none;
      margin: -15px 10px -23px 10px;
+}
+
+/*white typewriter-heading on black background - anonymous users - IE hack*/
+#main-content h2 a,
+#main h1.title,
+#main #block-views-temasider-block-1 h2,
+#block-views-reflektion-block h2,
+#block-views-temasider-block-1 h2 {
+
+     margin: -45px 10px 10px 10px\9;*/
 }
 
 /*white typewriter-heading on black background - logged in users*/

@@ -1,6 +1,7 @@
 <?php
 // $Id: page.tpl.php,v 1.1.2.2.4.2 2011/01/11 01:08:49 dvessel Exp $
 ?>
+<div id="topbanner-background"></div>
 <div id="page" class="container-12 clearfix">
 
   <div id="site-header" class="clearfix">
@@ -13,10 +14,10 @@
         <h1 id="site-name" class="grid-3 omega"><?php print $linked_site_name; ?></h1>
       <?php endif; ?>
       <?php if ($site_slogan): ?>
-        <div id="site-slogan" class="grid-4 push-4 omega"><?php print $site_slogan; ?></div>
+        <div id="site-slogan" class="grid-3 push-4 omega"><?php print $site_slogan; ?></div>
       <?php endif; ?>
       <?php if ($page['about_us']): ?>
-        <div id="about-us" class="grid-3 push-9 omega"><?php print render($page['about_us']); ?></div>
+        <div id="about-us" class="grid-4 push-8 omega"><?php print render($page['about_us']); ?></div>
       <?php endif; ?>
       <?php print $breadcrumb; ?>
     </div>

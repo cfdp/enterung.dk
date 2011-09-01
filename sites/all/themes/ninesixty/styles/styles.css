@@ -1,5 +1,15 @@
 /* $Id: styles.css,v 1.1.2.2.2.1 2011/01/11 01:08:49 dvessel Exp $ */
 
+#topbanner-background {
+  background-color: #D11709;
+  height: 50px;
+}
+
+
+#page {
+  margin-top: -50px;  
+}
+
 h1#site-name {
   margin-bottom: 0;
 }
@@ -48,7 +58,7 @@ a:hover {
 
 /*background image for the site*/
 body .container-12 {
-  background-image: url('../images/Kærester_slut_30erne.jpg');
+  /*background-image: url('../images/Kærester_slut_30erne.jpg');*/
   /*background-image: url('../images/frontpage_backv2.jpg');*/
 }
 /*styling for sidebar blocks and main content*/
@@ -228,9 +238,12 @@ body.logged-in #main h1.title,
   padding-left: 8px;
 }
 
-.view-display-id-attachment_1.view-id-photo_album .views-row,
-.view-display-id-attachment_1.view-id-facts .views-row {
+.view-display-id-attachment_1.view-id-photo_album .views-row {
   display:inline;
+  font-size: 10px;
+}
+
+.view-display-id-attachment_1.view-id-facts .views-row {
   font-size: 10px;
 }
 
@@ -244,6 +257,11 @@ body.node-type-photo-album .field-type-image .field-item {
 #forum table {
   width: 100%;
 }
+
+table tbody {
+  border: 0px;
+}
+
 /*site name and slogan*/
 h1#site-name  {
   font-family: 'Cherry Cream Soda', serif;
@@ -260,7 +278,7 @@ h1#site-name  {
 
 h1#site-name a {
   text-decoration: none;
-  color: #000000;
+  color: #ffffff;
 
 }
 
@@ -289,7 +307,7 @@ h1#site-name a {
 }
 
 #about-us {
-  margin-top: -40px;
+  margin-top: -50px;
 }
 
 #about-us .block {

@@ -14,6 +14,10 @@ h1#site-name {
   margin-bottom: 0;
 }
 
+h3 {
+  font-size: 16px;
+}
+
 #site-header,
 #site-subheader,
 #footer-region,
@@ -22,6 +26,10 @@ h1#site-name {
 .comment,
 .block {
   margin-bottom: 1.5em;
+}
+
+#sidebar-left {
+	min-height: 700px;
 }
 
 /*we want a semi transparent header region - this solution not working with 960 it seems*/
@@ -46,12 +54,15 @@ body {
   font-family: "Courier New",Courier,monospace;
 }
 
-a {
+a,
+li a, 
+li a.active {
   color: #EC3E00;
   text-decoration: none;
 }
 
-a:hover {
+a:hover,
+li a:hover {
   color: #EC3E00;
   text-decoration: underline;
 }
@@ -85,7 +96,8 @@ body.not-front #main .node,
 body.page-user #main-content,
 body.page-forum #main-content,
 #block-views-temasider-block-1,
-#block-views-reflektion-block {
+#block-views-reflektion-block,
+#block-views-reflektion-block-1 {
   border: 3px solid #000000;
 }
 
@@ -98,7 +110,8 @@ body.front #main-content .node,
 body.not-front #main .node,
 body.page-user #main-content,
 body.page-forum #main-content,
-#block-views-reflektion-block {
+#block-views-reflektion-block,
+#block-views-reflektion-block-1 {
   background-color: #ffffff;
 }
 
@@ -112,7 +125,8 @@ body.page-forum #main-content,
 body.page-user #main-content,
 body.page-forum #main-content,
 #block-views-reflektion-block,
-#block-views-temasider-block-1
+#block-views-temasider-block-1,
+#block-views-reflektion-block-1
  {
   padding: 5px;
 }
@@ -189,24 +203,31 @@ body.not-logged-in a.ckeditor_links {
 .form-textarea-wrapper {
   padding-right: 12px;
 }
+
 /**/
 body.node-type-temaside .field-name-field-image,
-body.node-type-forum .node-forum,
 body.page-forum #main-content .content,
-body.node-type-forum #main-content .node {
+body.page-node #main-content .node  {
   padding-top: 40px;
 }
 
+
+body.node-type-temaside #main-content .node  {
+  padding-top: 10px;
+}
+
 body.page-forum #main-content {
-  margin-top: 27px;
+  margin-top: 2px;
 }
 
 /*white typewriter-heading on black background - anonymous users*/
+body.front #main-content .node-promoted h2,
 #main-content h2 a,
 #main h1.title,
 #main #block-views-temasider-block-1 h2,
 #block-views-reflektion-block h2,
-#block-views-temasider-block-1 h2 {
+#block-views-temasider-block-1 h2,
+#block-views-reflektion-block-1 h2 {
     -moz-transform: rotate(-1deg);
     -webkit-transform: rotate(-1deg);
     background-color: #000000;
@@ -214,7 +235,7 @@ body.page-forum #main-content {
     font-size: 16px;
     padding: 6px;  
     text-decoration:none;
-     margin: -15px 10px -23px 10px;
+    margin: -15px 10px -23px 10px;
 }
 
 /*white typewriter-heading on black background - anonymous users - IE hack*/
@@ -222,9 +243,10 @@ body.page-forum #main-content {
 #main h1.title,
 #main #block-views-temasider-block-1 h2,
 #block-views-reflektion-block h2,
-#block-views-temasider-block-1 h2 {
+#block-views-temasider-block-1 h2,
+#block-views-reflektion-block-1 h2 {
 
-     margin: -45px 10px 10px 10px\9;*/
+     margin: -25px 10px -10px 10px\9;*/
 }
 
 /*white typewriter-heading on black background - logged in users*/
@@ -232,17 +254,27 @@ body.logged-in #main-content h2 a,
 body.logged-in #main h1.title,
 #main #block-views-temasider-block-1 h2,
 #block-views-reflektion-block h2,
-#block-views-temasider-block-1 h2 {
+#block-views-temasider-block-1 h2,
+#block-views-reflektion-block-1 h2 {
 
-    margin: -24px 10px -63px 10px;
+    margin: -24px 10px -63px;
     
 }
 
+/*blocks need some adjustment*/
 #block-views-reflektion-block h2,
 #block-views-temasider-block-1 h2 {
     margin: -15px 0 10px 0;
 }
 
+
+#block-views-reflektion-block-1 h2 {
+    margin: -15px 0 10px 0;
+}
+
+body.front #main-content .node-promoted h2 {
+	margin: -63px 0 10px 0;
+}
 /*photo album*/
 #block-views-photo-album-block .views-field-field-image {
   padding-left: 8px;
@@ -322,7 +354,15 @@ h1#site-name a {
 
 #about-us .block {
   margin-bottom: 0px;
-  }  
+  padding-right: 15px;
+}  
+
+
+#about-us p {
+  margin: 0px;
+  padding: 0px;
+}
+
 .messages {
   margin-top: 40px;
 }

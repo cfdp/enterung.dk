@@ -5,6 +5,14 @@
   height: 50px;
 }
 
+/*static background image*/
+body.html {
+  background-image: url('../images/background_Malermester_1902.JPG');
+  background-repeat:
+  no-repeat;  
+  background-attachment: fixed; 
+}
+
 
 #page {
   margin-top: -50px;  
@@ -69,7 +77,7 @@ li a:hover {
 
 /*background image for the site*/
 body .container-12 {
-  /*background-image: url('../images/Kærester_slut_30erne.jpg');*/
+  background-image: url('../images/semitransparent.gif');
   /*background-image: url('../images/frontpage_backv2.jpg');*/
 }
 /*styling for sidebar blocks and main content*/
@@ -365,4 +373,13 @@ h1#site-name a {
 
 .messages {
   margin-top: 40px;
+}
+
+/*print page link*/
+.print_html {
+  margin-left: 0px;
+}
+
+ul.inline li.print_html {
+  padding: 0;
 }

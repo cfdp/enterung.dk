@@ -5,6 +5,12 @@
   height: 50px;
 }
 
+#topbanner-background-white {
+  background-color: #ffffff;
+  height: 20px;
+  top: 50px;
+}
+
 /*static background image*/
 body.html {
   background-image: url('../images/background_sneakers.jpg');
@@ -15,7 +21,7 @@ body.html {
 
 
 #page {
-  margin-top: -50px;  
+  margin-top: -75px;  
 }
 
 h1#site-name {
@@ -40,7 +46,7 @@ h3 {
 	min-height: 700px;
 }
 
-/*we want a semi transparent header region - this solution not working with 960 it seems*/
+/* a semi transparent region */
 #site-header .transparency_test {
   background-color: #ffffff;
   /* for IE */
@@ -85,6 +91,11 @@ body .container-12 {
 	background-image: url('../images/headline_arrow_blue.png');
 }
 
+
+/*breadcrumb*/
+.breadcrumb {
+  margin-top: -23px;
+}
 /*border colors*/
 #block-views-temasider-block {
   border: 3px solid #738BD8;
@@ -265,7 +276,7 @@ body.logged-in #main h1.title,
 #block-views-temasider-block-1 h2,
 #block-views-reflektion-block-1 h2 {
 
-    margin: -24px 10px -63px;
+    margin: -68px 10px 10px;
     
 }
 
@@ -333,7 +344,7 @@ h1#site-name a {
 }
 
 #site-header {
-  margin-bottom: 0px;
+  margin-bottom: 25px;
 }
 
 #site-slogan {
@@ -350,10 +361,14 @@ h1#site-name a {
   margin-top: -30px;
   -moz-transform: rotate(-1deg);
   -webkit-transform: rotate(-1deg);
-  background-color: #738BD8;
   color: #FFFFFF;
   padding: 6px;  
   text-decoration:none;
+ 
+  background: #738BD8; /* for non-css3 browsers */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b7c3e8', endColorstr='#738BD8'); /* for IE */
+  background: -webkit-gradient(linear, left top, left bottom, from(#b7c3e8), to(#738BD8)); /* for webkit browsers */
+  background: -moz-linear-gradient(top,  #b7c3e8,  #738BD8); /* for firefox 3.6+ */ 
 }
 
 #about-us {

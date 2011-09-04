@@ -21,7 +21,7 @@ body.html {
 
 
 #page {
-  margin-top: -75px;  
+  margin-top: -71px;  
 }
 
 h1#site-name {
@@ -81,6 +81,10 @@ li a:hover {
   text-decoration: underline;
 }
 
+.textbottom {
+  vertical-align:text-bottom;
+} 
+
 /*background image for the site*/
 body .container-12 {
   /*background-image: url('../images/semitransparent.gif');*/
@@ -94,7 +98,7 @@ body .container-12 {
 
 /*breadcrumb*/
 .breadcrumb {
-  margin-top: -23px;
+  margin-top: -20px;
 }
 /*border colors*/
 #block-views-temasider-block {
@@ -116,7 +120,10 @@ body.page-user #main-content,
 body.page-forum #main-content,
 #block-views-temasider-block-1,
 #block-views-reflektion-block,
-#block-views-reflektion-block-1 {
+#block-views-reflektion-block-1,
+body.page-comment-reply form.comment-form,
+body.page-node-add form.node-form,
+body.page-comment-reply .comment-by-node-author  {
   border: 3px solid #000000;
 }
 
@@ -130,7 +137,10 @@ body.not-front #main .node,
 body.page-user #main-content,
 body.page-forum #main-content,
 #block-views-reflektion-block,
-#block-views-reflektion-block-1 {
+#block-views-reflektion-block-1,
+body.page-comment-reply form.comment-form,
+body.page-node-add form.node-form,
+body.page-comment-reply .comment-by-node-author {
   background-color: #ffffff;
 }
 
@@ -145,8 +155,10 @@ body.page-user #main-content,
 body.page-forum #main-content,
 #block-views-reflektion-block,
 #block-views-temasider-block-1,
-#block-views-reflektion-block-1
- {
+#block-views-reflektion-block-1,
+body.page-comment-reply form.comment-form,
+body.page-node-add form.node-form,
+body.page-comment-reply .comment-by-node-author {
   padding: 5px;
 }
 
@@ -193,7 +205,7 @@ body.page-forum #main-content,
   color: #ffffff;
   padding-left: 15px;
   padding-top: 8px;
-  margin-bottom: 5px;
+  margin-bottom: -5px;
   margin-top: -18px;
   margin-left: 3px;
   background-repeat: no-repeat;
@@ -206,9 +218,9 @@ body.page-forum #main-content,
   margin-top: 50px;
 }
 
-/*comments headline*/
+
 #main-content .back_button {
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 /*hide input-format info etc for anonymous users*/
@@ -226,7 +238,8 @@ body.not-logged-in a.ckeditor_links {
 /**/
 body.node-type-temaside .field-name-field-image,
 body.page-forum #main-content .content,
-body.page-node #main-content .node  {
+body.page-node #main-content .node,
+body.page-comment-reply #main-content .content {
   padding-top: 40px;
 }
 
@@ -294,6 +307,17 @@ body.logged-in #main h1.title,
 body.front #main-content .node-promoted h2 {
 	margin: -63px 0 10px 0;
 }
+
+/*author name formatting*/
+.submitted {
+  color: #666666;
+  font-size: 10px;
+}
+
+.item-list ul li {
+  margin: 0 0 0.25em 2.5em;
+}
+
 /*photo album*/
 #block-views-photo-album-block .views-field-field-image {
   padding-left: 8px;

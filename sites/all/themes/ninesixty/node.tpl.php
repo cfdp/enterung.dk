@@ -27,8 +27,11 @@
     <?php if (!empty($content['links'])): ?>
       <div class="links"><?php print render($content['links']); ?></div>
     <?php endif; ?>
-
-    <div class="back_button"><a href="javascript: history.go(-1)"><< Tilbage <<</a></div>
+    
+    <?php if (!$teaser): ?> 
+      <div class="back_button"><a href="javascript: history.go(-1)"><< Tilbage <<</a></div>
+    <?php endif; ?>
+    
 
     <?php print render($content['comments']); ?>
   </div>

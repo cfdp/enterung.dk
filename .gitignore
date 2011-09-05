@@ -7,3 +7,6 @@
 /sites/default/files/temasider
 /sites/default/files/u*
 /sites/default/files/settings.php
+/sites/all/modules/devel/
+/sites/all/modules/devel_themer/
+/sites/default/local_settings.php

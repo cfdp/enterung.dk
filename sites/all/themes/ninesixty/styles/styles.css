@@ -13,7 +13,7 @@
 
 /*static background image*/
 body.html {
-  background-image: url('../images/background_sneakers.jpg');
+  background-image: url('../images/background_kom_indenfor.JPG');
   background-repeat:
   no-repeat;  
   background-attachment: fixed; 
@@ -46,7 +46,7 @@ h3 {
 	min-height: 700px;
 }
 
-/* a semi transparent region */
+
 #site-header .transparency_test {
   background-color: #ffffff;
   /* for IE */
@@ -288,9 +288,7 @@ body.logged-in #main h1.title,
 #block-views-reflektion-block h2,
 #block-views-temasider-block-1 h2,
 #block-views-reflektion-block-1 h2 {
-
-    margin: -68px 10px 10px;
-    
+    margin: -68px 10px 10px;    
 }
 
 /*blocks need some adjustment*/
@@ -335,6 +333,11 @@ body.front #main-content .node-promoted h2 {
 body.node-type-photo-album .field-type-image .field-item {
   display:inline;
   margin-right: 8px;
+}
+
+/*dropping the alpha for IE*/
+#cboxTitle {
+  background: none repeat scroll 0 0 rgb(255, 255, 255);
 }
 
 /*forum*/

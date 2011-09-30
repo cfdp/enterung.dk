@@ -43,7 +43,7 @@ h3 {
 }
 
 #sidebar-left {
-	min-height: 700px;
+	min-height: 730px;
 }
 
 
@@ -103,6 +103,7 @@ body .container-12 {
 /*border colors*/
 #block-views-temasider-block {
   border: 3px solid #738BD8;
+  padding-bottom: 3px;
 }
 
 #block-views-photo-album-block {
@@ -344,6 +345,20 @@ body.node-type-photo-album .field-type-image .field-item {
 
 #forum table {
   width: 100%;
+  margin-top: 15px;
+}
+
+#forum div.add-topic-link {
+  width: 150px;
+  border: 1px solid #EC3E00;
+  padding: 5px;
+}
+
+#forum .add-topic-link {
+  width: 150px;
+  border: 1px solid #EC3E00;
+  padding: 5px;
+  margin: 5px;
 }
 
 table tbody {

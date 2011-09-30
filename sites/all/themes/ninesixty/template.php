@@ -37,6 +37,11 @@ function ninesixty_breadcrumb($variables) {
  */
 function ninesixty_preprocess_page(&$vars, $hook) {
 
+  if (isset($vars['node'])) {  
+    $vars['theme_hook_suggestions'][] = 'page__type__'. $vars['node']->type;
+    $vars['theme_hook_suggestions'][] = "page__node__" . $vars['node']->nid;
+  }
+
   // For easy printing of variables.
   $vars['logo_img'] = '';
   if (!empty($vars['logo'])) {

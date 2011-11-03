@@ -361,6 +361,11 @@ body.node-type-photo-album .field-type-image .field-item {
   margin: 5px;
 }
 
+body.node-type-forum .comment {
+  border: 1px solid #bbb;
+  padding: 10px;  
+}
+
 table tbody {
   border: 0px;
 }

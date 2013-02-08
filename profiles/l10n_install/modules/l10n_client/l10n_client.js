@@ -114,6 +114,8 @@ Drupal.behaviors.l10nClient.attach = function (context) {
     $('#l10n-client-string-editor .source-text').text(Drupal.l10nClient.getString(index, 'source'));
     $('#l10n-client-form .translation-target').val(Drupal.l10nClient.getString(index, 'target'));
     $('#l10n-client-form .source-textgroup').val(Drupal.l10nClient.getString(index, 'textgroup'));
+    $('#l10n-client-form .source-context').val(Drupal.l10nClient.getString(index, 'context'));
+    $('#l10n-client-string-editor .context').text(Drupal.l10nClient.getString(index, 'context'));
 
     Drupal.l10nClient.selected = index;
     $('#l10n-client-form .form-submit').removeAttr("disabled");
@@ -168,6 +170,7 @@ Drupal.behaviors.l10nClient.attach = function (context) {
         source: $('#l10n-client-string-editor .source-text').text(),
         target: $('#l10n-client-form .translation-target').val(),
         textgroup: $('#l10n-client-form .source-textgroup').val(),
+        context: $('#l10n-client-string-editor .context').text(),
         'form_token': $('#l10n-client-form input[name=form_token]').val()
       },
       success: function (data) {

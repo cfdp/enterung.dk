@@ -15,10 +15,18 @@ Drupal.behaviors.initColorboxInline = {
       if (!results) { return ''; }
       return results[1] || '';
     };
-    $('a, area, input', context).filter('.colorbox-inline').once('init-colorbox-inline-processed').colorbox({
+    $('a, area, input', context).filter('.colorbox-inline').once('init-colorbox-inline').colorbox({
       transition:settings.colorbox.transition,
       speed:settings.colorbox.speed,
       opacity:settings.colorbox.opacity,
+      slideshow:settings.colorbox.slideshow,
+      slideshowAuto:settings.colorbox.slideshowAuto,
+      slideshowSpeed:settings.colorbox.slideshowSpeed,
+      slideshowStart:settings.colorbox.slideshowStart,
+      slideshowStop:settings.colorbox.slideshowStop,
+      current:settings.colorbox.current,
+      previous:settings.colorbox.previous,
+      next:settings.colorbox.next,
       close:settings.colorbox.close,
       overlayClose:settings.colorbox.overlayClose,
       maxWidth:settings.colorbox.maxWidth,

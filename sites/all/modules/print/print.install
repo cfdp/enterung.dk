@@ -13,7 +13,7 @@
 function print_install() {
   $t = get_t();
   drupal_set_message($t('Printer-friendly Page settings are available under !link',
-    array( '!link' => l($t('Administer > Configuration > Printer, e-mail and PDF versions'),  'admin/config/user-interface/print' ) )
+    array('!link' => l($t('Administration > Configuration > User interface > Printer, email and PDF versions'), 'admin/config/user-interface/print'))
   ));
 }
 
@@ -21,8 +21,6 @@ function print_install() {
  * Implements hook_enable().
  */
 function print_enable() {
-  $t = get_t();
-
   // Module weight
   db_update('system')
     ->fields(array(
@@ -44,6 +42,7 @@ function print_uninstall() {
   variable_del('print_logo_url');
   variable_del('print_logo_options');
   variable_del('print_css');
+  variable_del('print_keep_theme_css');
   variable_del('print_urls');
   variable_del('print_urls_anchors');
   variable_del('print_comments');
@@ -165,4 +164,14 @@ function print_update_7000(&$sandbox) {
   );
 
   update_fix_d7_block_deltas($sandbox, $renamed_deltas, array());
+}
+
+/**
+ * Enable block and help area links
+ */
+function print_update_7101(&$sandbox) {
+  $link_pos = variable_get('print_html_link_pos', drupal_json_decode('{ "link": "link", "block": "block", "help": "help" }'));
+  $link_pos['block'] = 'block';
+  $link_pos['help'] = 'help';
+  variable_set('print_html_link_pos', $link_pos);
 }

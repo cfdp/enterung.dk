@@ -1,5 +1,4 @@
 <?php
-// $Id: galleryformatter_imagestyles.inc,v 1.1 2010/06/20 11:35:10 manuelgarcia Exp $
 
 /**
  * @file

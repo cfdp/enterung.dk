@@ -153,9 +153,16 @@ how it wants to round. */
     #l10n-client-string-editor .source .source-text {
       line-height:1.5em;
       background:#eee;
-      height:16em; margin:1em; padding:1em;
+      height:15em; margin:1em; padding:1em;
+      margin-bottom:0.5em;
       overflow:auto;}
-
+    #l10n-client-string-editor .context {
+      line-height:1em;
+      height:1em;
+      font-size:0.8em;
+      margin:0.5em 1em 1em 1em;
+      padding: 0 1em 0 1em;
+    }
   #l10n-client-string-editor .translation {
     overflow:hidden;
     width:49%; float:right;}

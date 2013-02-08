@@ -203,8 +203,10 @@ function l10n_client_page_alter(&$page) {
     // If we have strings for the page language, restructure the data.
     $l10n_strings = array();
     foreach ($page_strings as $textgroup => $group_strings) {
-      foreach ($group_strings as $string => $translation) {
-        $l10n_strings[] = array($string, $translation, $textgroup);
+      foreach ($group_strings as $context => $context_strings) {
+        foreach ($context_strings as $string => $translation) {
+          $l10n_strings[] = array($string, $translation, $textgroup, $context);
+        }
       }
     }
     array_multisort($l10n_strings);
@@ -240,6 +242,7 @@ function l10n_client_page_alter(&$page) {
         <div id='l10n-client-string-editor'>
           <div class='source'>
             <div class='source-text'></div>
+            <div class='context'></div>
           </div>
           <div class='translation'>
             $l10n_form
@@ -266,11 +269,11 @@ function l10n_client_page_alter(&$page) {
  * @param $textgroup
  *   Text group the string belongs to
  */
-function l10_client_add_string_to_page($source = NULL, $translation = NULL, $textgroup = 'default') {
+function l10_client_add_string_to_page($source = NULL, $translation = NULL, $textgroup = 'default', $context = '') {
   static $strings = array();
 
   if (isset($source)) {
-    $strings[$textgroup][$source] = $translation;
+    $strings[$textgroup][$context][$source] = $translation;
   }
   else {
     return $strings;
@@ -294,18 +297,21 @@ function _l10n_client_page_strings() {
   if (arg(0) != 'locale' && is_array($locale = locale()) && isset($locale[$language->language])) {
     // Get the page strings stored by this or other modules.
     $strings += array('default' => array());
-    // @todo: add actual context support.
-    $strings['default'] = array_merge($strings['default'], $locale[$language->language]['']);
+    foreach ($locale[$language->language] as $context => $context_strings) {
+      $strings['default'] += array($context => array());
+      $strings['default'][$context] = array_merge($strings['default'][$context], $context_strings);
+    }
+
 
     // Also select and add other strings for this path. Other users may have run
     // into these strings for the same page. This might be useful in some cases
     // but will not work reliably in all cases, since strings might have been
     // found on completely different paths first, or on a slightly different
     // path.
-    $result = db_query("SELECT s.source, t.translation, s.textgroup FROM {locales_source} s LEFT JOIN {locales_target} t ON s.lid = t.lid AND t.language = :language WHERE s.location = :location", array(':language' => $language->language, ':location' => request_uri()));
+    $result = db_query("SELECT s.source, t.translation, s.textgroup, s.context FROM {locales_source} s LEFT JOIN {locales_target} t ON s.lid = t.lid AND t.language = :language WHERE s.location = :location", array(':language' => $language->language, ':location' => request_uri()));
     foreach ($result as $data) {
       if (!array_key_exists($data->source, $strings[$data->textgroup])) {
-        $strings[$data->textgroup][$data->source] = (empty($data->translation) ? TRUE : $data->translation);
+        $strings[$data->textgroup][$data->context][$data->source] = (empty($data->translation) ? TRUE : $data->translation);
       }
     }
   }
@@ -319,10 +325,11 @@ function _l10n_client_page_strings() {
 function _l10n_client_dom_strings($strings) {
   $output = '';
   foreach ($strings as $values) {
-    $source = $values[0] === TRUE ? '' : htmlspecialchars($values[0], ENT_NOQUOTES, 'UTF-8');
-    $target = $values[1] === TRUE ? '' : htmlspecialchars($values[1], ENT_NOQUOTES, 'UTF-8');
-    $textgroup = $values[2];
-    $output .= "<div><span class='source'>$source</span><span class='target'>$target</span><span class='textgroup'>$textgroup</span></div>";
+    list ($source, $target, $textgroup, $context) = $values;
+    $source = $source === TRUE ? '' : htmlspecialchars($source, ENT_NOQUOTES, 'UTF-8');
+    $target = $target === TRUE ? '' : htmlspecialchars($target, ENT_NOQUOTES, 'UTF-8');
+    $context = htmlspecialchars($context, ENT_NOQUOTES, 'UTF-8');
+    $output .= "<div><span class='source'>$source</span><span class='target'>$target</span><span class='textgroup'>$textgroup</span><span class='context'>$context</context></div>";
   }
   return "<div id='l10n-client-data'>$output</div>";
 }
@@ -396,6 +403,11 @@ function l10n_client_form($form_id, $strings) {
     '#value' => 'default',
     '#attributes' => array('class' => array('source-textgroup')),
   );
+  $form['context'] = array(
+    '#type' => 'hidden',
+    '#value' => 'default',
+    '#attributes' => array('class' => array('source-context')),
+  );
   $form['copy'] = array(
     '#type' => 'button',
     '#id' => 'l10n-client-edit-copy',
@@ -440,14 +452,12 @@ function l10n_client_save_string() {
   if (l10n_client_access()) {
     if (isset($_POST['source']) && isset($_POST['target']) && !empty($_POST['textgroup']) && !empty($_POST['form_token']) && drupal_valid_token($_POST['form_token'], 'l10n_client_form')) {
       // Ensure we have this source string before we attempt to save it.
-      // @todo: add actual context support.
-      $lid = db_query("SELECT lid FROM {locales_source} WHERE source = :source AND context = :context AND textgroup = :textgroup", array(':source' => $_POST['source'], ':context' => '', ':textgroup' => $_POST['textgroup']))->fetchField();
-      
+      $lid = db_query("SELECT lid FROM {locales_source} WHERE source = :source AND context = :context AND textgroup = :textgroup", array(':source' => $_POST['source'], ':context' => $_POST['context'], ':textgroup' => $_POST['textgroup']))->fetchField();
+
       if (!empty($lid)) {
         include_once 'includes/locale.inc';
         $report = array('skips' => 0, 'additions' => 0, 'updates' => 0, 'deletes' => 0);
-        // @todo: add actual context support.
-        _locale_import_one_string_db($report, $language->language, '', $_POST['source'], $_POST['target'], $_POST['textgroup'], NULL, LOCALE_IMPORT_OVERWRITE);
+        _locale_import_one_string_db($report, $language->language, $_POST['context'], $_POST['source'], $_POST['target'], $_POST['textgroup'], NULL, LOCALE_IMPORT_OVERWRITE);
         cache_clear_all('locale:', 'cache', TRUE);
         _locale_invalidate_js($language->language);
         if (!empty($report['skips'])) {

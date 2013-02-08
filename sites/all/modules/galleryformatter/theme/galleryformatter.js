@@ -1,11 +1,12 @@
-// $Id: galleryformatter.js,v 1.6.2.2 2011/01/30 19:59:58 manuelgarcia Exp $
 
 Drupal.behaviors.galleryformatter = {
   attach: function (context) {
-    (jQuery)('.galleryformatter:not(.gallery-processed)', context).each(function(){
-      Drupal.galleryformatter.prepare(this);
-
-    }).addClass('gallery-processed');
+    // We must wait for everything to load in order to get images' dimensions.
+    (jQuery)(window).bind('load', function() {
+      (jQuery)('.galleryformatter:not(.gallery-processed)', context).each(function(){
+        Drupal.galleryformatter.prepare(this);
+      }).addClass('gallery-processed');
+    });
   }
 };
 
@@ -58,6 +59,8 @@ Drupal.galleryformatter.prepare = function(el) {
         $(this).parent().addClass('active');
         $slides.filter(':visible').fadeOut('slow');
         $hash.fadeIn('slow');
+        // set the slide container's height to allow use of portrait images
+        $slideContainer.css("height",$hash.find('img').height());
         /*
          * @FIXME
          * Need to figure out a way to update the location bar of the browser, for bookmarking etc, without making the scroll jump
@@ -71,12 +74,14 @@ Drupal.galleryformatter.prepare = function(el) {
     /*
      *  Startup behaviour (when the page first loads)
      */
-    $slides.hide(); // hide all slides
+    if ($slides.length > 1) {
+      $slides.hide(); // hide all slides
+    }
     var $locationHash = window.location.hash; // if we are being deeplinked to a specific slide, capture that
 
     function showFirstSlide(){
-       $slides.filter(':first').show(); // show the first one
-       $thumbsLi.filter('.slide-0:not("cloned")').addClass('active'); // activate the first thumbnail
+      // Activate the first slide
+      $('a', $thumbsLi.filter('.slide-0:not(".cloned")')).trigger('click');
      }
 
     // if we have a hash in the url
@@ -86,6 +91,8 @@ Drupal.galleryformatter.prepare = function(el) {
       if ($slideToShow.length > 0) {
         $slideToShow.show(); //  show that slide
         $thumbsLi.not($(".cloned")).find("a[href="+$locationHash+"]").parent().addClass('active'); // activate that thumbnail
+        // set the slide container's height to allow use of portrait images
+        $slideContainer.css("height", $slideToShow.find('img').height());
       }
       // otherwise the default
       else {
@@ -103,7 +110,7 @@ Drupal.galleryformatter.prepare = function(el) {
     // Shows the previous slide and scrolls to the previous page if necessary
     $thumbs.bind('showPrev', function (event) {
       var currentScroll = $wrapper.get(0).scrollLeft;
-      var $prevThumbLi = $thumbsLi.filter('.active').prevAll().not('.cloned, .empty, .active').filter(':first');
+      var $prevThumbLi = $thumbsLi.filter('.active').prev(':not(".cloned, .empty, .active")');
       // if no results we are on the first element
       if(!$prevThumbLi.size()) {
         // select the last one
@@ -123,7 +130,7 @@ Drupal.galleryformatter.prepare = function(el) {
     $thumbs.bind('showNext', function (event) {
       var currentScroll = $wrapper.get(0).scrollLeft;
       // this selector could be optimized perhaps, but
-      var $nextThumbLi = $thumbsLi.filter('.active').nextAll().not('.cloned, .empty, .active').filter(':first');
+      var $nextThumbLi = $thumbsLi.filter('.active').next(':not(".cloned, .empty, .active")');
       // if no results we are on the last element
       if(!$nextThumbLi.size()) {
         // select the first one
@@ -142,19 +149,21 @@ Drupal.galleryformatter.prepare = function(el) {
       }
     });
 
-    $('img', $slideContainer).click(function(){
+    $('.shownext + img', $slideContainer).click(function(){
       $thumbs.trigger('showNext');
     });
 
-     // Setup buttons for next/prev slide
-    $slideButtons = ('<a class="prev-slide slide-button" title="'+ Drupal.t('Previous image') +'">&lt;</a><a class="next-slide slide-button" title="'+ Drupal.t('Next image') +'">&gt;</a>');
-    $('.gallery-slides', $el).append($slideButtons);
-    // Trigger the appropiate events on click
-    $('a.prev-slide', $el).click(function(){
-      $thumbs.trigger('showPrev');
-    });
-    $('a.next-slide', $el).click(function(){
-      $thumbs.trigger('showNext');
-    });
+    if ($slides.length > 1) {
+      // Setup buttons for next/prev slide
+      $slideButtons = ('<a class="prev-slide slide-button" title="'+ Drupal.t('Previous image') +'">&lt;</a><a class="next-slide slide-button" title="'+ Drupal.t('Next image') +'">&gt;</a>');
+      $('.gallery-slides', $el).append($slideButtons);
+      // Trigger the appropiate events on click
+      $('a.prev-slide', $el).click(function(){
+        $thumbs.trigger('showPrev');
+      });
+      $('a.next-slide', $el).click(function(){
+        $thumbs.trigger('showNext');
+      });
+    }
   })(jQuery);
 }
